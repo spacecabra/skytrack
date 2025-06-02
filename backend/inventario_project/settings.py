@@ -82,7 +82,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_PAGINATION_CLASS': 'api.pagination.StandardResultsSetPagination',
     'PAGE_SIZE': 10,
@@ -99,6 +99,8 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
       "http://localhost:3000",  # Para desarrollo con React
         "http://127.0.0.1:3000",
+        "http://localhost:5173",  # ← AGREGAR ESTA LÍNEA
+    "http://127.0.0.1:5173",
 ]
 # Configuración adicional de seguridad
 CORS_ALLOW_CREDENTIALS = True
@@ -132,7 +134,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'inventario_db',
         'USER': 'postgres',
-        'PASSWORD': 'woodyjobs#',  # Reemplaza con tu contraseña real
+        'PASSWORD': 'pitbull',  # Reemplaza con tu contraseña real
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -179,3 +181,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración de redirección después del login
+LOGIN_REDIRECT_URL = '/api/v1/'
+LOGOUT_REDIRECT_URL = '/api/v1/'
