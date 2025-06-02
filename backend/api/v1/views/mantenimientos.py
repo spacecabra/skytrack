@@ -12,7 +12,7 @@ from datetime import date
 class MantenimientoViewSet(viewsets.ModelViewSet):
     queryset = Mantenimiento.objects.all()
     serializer_class = MantenimientoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['equipo', 'tipo', 'resultado']
     search_fields = ['descripcion', 'responsable']
@@ -38,7 +38,7 @@ class MantenimientoViewSet(viewsets.ModelViewSet):
 class GarantiaViewSet(viewsets.ModelViewSet):
     queryset = Garantia.objects.all()
     serializer_class = GarantiaSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['equipo', 'proveedor', 'activa']
     search_fields = ['proveedor', 'condiciones']

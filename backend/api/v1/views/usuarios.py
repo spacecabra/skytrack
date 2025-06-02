@@ -6,7 +6,7 @@ from api.v1.serializers.usuarios import UsuarioSerializer, UsuarioDetalleSeriali
 class AreaViewSet(viewsets.ModelViewSet):
     queryset = Area.objects.all()
     serializer_class = AreaSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['activo']
     search_fields = ['nombre', 'descripcion']
@@ -14,7 +14,7 @@ class AreaViewSet(viewsets.ModelViewSet):
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['area', 'ubicacion', 'activo']
     search_fields = ['nombre_usuario', 'nombre_completo', 'email']

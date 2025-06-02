@@ -12,7 +12,7 @@ from api.v1.serializers.consumibles import (
 class ConsumibleViewSet(viewsets.ModelViewSet):
     queryset = Consumible.objects.all()
     serializer_class = ConsumibleSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['tipo', 'fabricante', 'ubicacion', 'activo']
     search_fields = ['modelo', 'compatibilidad']
@@ -42,7 +42,7 @@ class ConsumibleViewSet(viewsets.ModelViewSet):
 class ConsumibleEquipoViewSet(viewsets.ModelViewSet):
     queryset = ConsumibleEquipo.objects.all()
     serializer_class = ConsumibleEquipoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['consumible', 'equipo']
 
@@ -54,7 +54,7 @@ class ConsumibleEquipoViewSet(viewsets.ModelViewSet):
 class ConsumoHistoricoViewSet(viewsets.ModelViewSet):
     queryset = ConsumoHistorico.objects.all()
     serializer_class = ConsumoHistoricoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['consumible', 'equipo', 'fecha_consumo']
     search_fields = ['solicitado_por', 'autorizado_por', 'motivo']

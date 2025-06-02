@@ -11,7 +11,7 @@ from api.v1.serializers.equipos import (
 class CategoriaEquipoViewSet(viewsets.ModelViewSet):
     queryset = CategoriaEquipo.objects.all()
     serializer_class = CategoriaEquipoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['activo']
     search_fields = ['nombre', 'descripcion']
@@ -19,7 +19,7 @@ class CategoriaEquipoViewSet(viewsets.ModelViewSet):
 class FabricanteViewSet(viewsets.ModelViewSet):
     queryset = Fabricante.objects.all()
     serializer_class = FabricanteSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['activo']
     search_fields = ['nombre', 'contacto']
@@ -27,7 +27,7 @@ class FabricanteViewSet(viewsets.ModelViewSet):
 class ModeloViewSet(viewsets.ModelViewSet):
     queryset = Modelo.objects.all()
     serializer_class = ModeloSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['fabricante', 'categoria', 'activo']
     search_fields = ['nombre', 'tipo_componente']
@@ -40,7 +40,7 @@ class ModeloViewSet(viewsets.ModelViewSet):
 class EstadoEquipoViewSet(viewsets.ModelViewSet):
     queryset = EstadoEquipo.objects.all()
     serializer_class = EstadoEquipoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['permite_asignacion']
     search_fields = ['nombre', 'descripcion']
@@ -48,7 +48,7 @@ class EstadoEquipoViewSet(viewsets.ModelViewSet):
 class EquipoViewSet(viewsets.ModelViewSet):
     queryset = Equipo.objects.all()
     serializer_class = EquipoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['estado', 'modelo', 'categoria', 'ubicacion', 'area']
     search_fields = ['nombre', 'serie', 'direccion_ip']

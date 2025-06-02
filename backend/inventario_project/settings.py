@@ -87,19 +87,18 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'api.pagination.StandardResultsSetPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_FILTER_BACKENDS': [
-         #'django_filter.rest_framework.DjangoFilterBackend',  # Cambia esto de django_filters a django_filter
-         'rest_framework.filters.SearchFilter',
-         'rest_framework.filters.OrderingFilter',
-
-    ],
+    'django_filters.rest_framework.DjangoFilterBackend',
+    'rest_framework.filters.SearchFilter',
+    'rest_framework.filters.OrderingFilter',
+],
 
     'EXCEPTION_HANDLER': 'api.exceptions.custom_exception_handler',
 }
 
 CORS_ALLOWED_ORIGINS = [
-      "http://localhost:3000",  # Para desarrollo con React
-        "http://127.0.0.1:3000",
-        "http://localhost:5173",  # ← AGREGAR ESTA LÍNEA
+       "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",  # Puerto de Vite
     "http://127.0.0.1:5173",
 ]
 # Configuración adicional de seguridad
@@ -131,12 +130,8 @@ WSGI_APPLICATION = 'inventario_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'inventario_db',
-        'USER': 'postgres',
-        'PASSWORD': 'pitbull',  # Reemplaza con tu contraseña real
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

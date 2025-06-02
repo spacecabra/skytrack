@@ -10,11 +10,11 @@ class UsuarioSerializer(serializers.ModelSerializer):
 class AsignacionEquipoSerializer(serializers.ModelSerializer):
     equipo_nombre = serializers.ReadOnlyField(source='equipo.nombre')
     usuario_nombre = serializers.ReadOnlyField(source='usuario.nombre_completo')
-    asignado_por = serializers.ReadOnlyField(source='asignado_por_usuario.nombre_completo')
+    asignado_por_nombre = serializers.ReadOnlyField(source='asignado_por.nombre_completo')
 
     class Meta:
         model = AsignacionEquipo
-        fields = '__all__'
+        fields = '__all__'  # Esto incluirá TODOS los campos, incluyendo asignado_por
 
 class AsignacionEquipoDetalleSerializer(serializers.ModelSerializer):
     # Movidas las importaciones fuera de la clase para evitar problemas

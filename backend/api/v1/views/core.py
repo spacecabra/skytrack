@@ -13,7 +13,7 @@ from api.v1.serializers.core import (
 class AsignacionEquipoViewSet(viewsets.ModelViewSet):
     queryset = AsignacionEquipo.objects.all()
     serializer_class = AsignacionEquipoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['equipo', 'usuario', 'fecha_asignacion', 'estado_asignacion']
 
@@ -57,14 +57,14 @@ class AsignacionEquipoViewSet(viewsets.ModelViewSet):
 class HistorialUbicacionViewSet(viewsets.ModelViewSet):
     queryset = HistorialUbicacion.objects.all()
     serializer_class = HistorialUbicacionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['equipo', 'ubicacion_anterior', 'ubicacion_nueva', 'fecha_cambio']
 
 class ConexionRedViewSet(viewsets.ModelViewSet):
     queryset = ConexionRed.objects.all()
     serializer_class = ConexionRedSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['equipo', 'tipo_conexion', 'activo']
     search_fields = ['ip_publica', 'ip_privada', 'dns_primario']
